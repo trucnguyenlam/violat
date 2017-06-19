@@ -37,13 +37,15 @@ public class InvocationFactory {
             })
             .toArray(Constructor<?>[]::new);
 
-        if (constructors.length < 1)
+        if (constructors.length < 1) {
             throw new NoSuchMethodException(
                 "unknown constructor " + _class.getName() + "(" + Arrays.toString(types) + ")"
             );
+        }
 
-        if (constructors.length > 1)
+        if (constructors.length > 1) {
             throw new NoSuchMethodException("ambiguous constructor");
+        }
 
         return get(constructors[0], args);
 

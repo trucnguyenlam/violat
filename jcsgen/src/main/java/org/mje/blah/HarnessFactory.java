@@ -7,66 +7,80 @@ import javax.json.*;
 
 public class HarnessFactory {
 
-    public static Harness fromJson(JsonObject object)
-    throws ClassNotFoundException, NoSuchMethodException {
-        Map<Integer, InvocationSequence> numbering = new HashMap<>();
+    public static Harness fromJson(JsonObject object, boolean clang_support)
+            throws ClassNotFoundException, NoSuchMethodException {
 
-        InvocationFactory f = new InvocationFactory(object.getString("class"));
+        if (clang_support) {
+            Map<Integer, InvocationSequence> numbering = new HashMap<>();
 
-        for (JsonObject sequence : object.getJsonArray("sequences")
-                .getValuesAs(JsonObject.class)) {
+            InvocationFactory f = new InvocationFactory(object.getString("equivalent"));
 
-            List<Invocation> invocations = new LinkedList<>();
-            for (JsonObject i : sequence.getJsonArray("invocations")
-                    .getValuesAs(JsonObject.class))
+            for (JsonObject sequence : object.getJsonArray("sequences").getValuesAs(JsonObject.class)) {
 
-                invocations.add(f.get(
-                    i.getString("method"),
-                    i.getJsonArray("arguments").stream()
-                        .map(HarnessFactory::fromJsonValue).toArray()));
+                List<Invocation> invocations = new LinkedList<>();
+                for (JsonObject i : sequence.getJsonArray("invocations").getValuesAs(JsonObject.class))
 
-            numbering.put(
-                sequence.getInt("index"),
-                new InvocationSequence(invocations));
+                    invocations.add(f.get(i.getString("equivalent"),
+                            i.getJsonArray("arguments").stream().map(HarnessFactory::fromJsonValue).toArray()));
+
+                numbering.put(sequence.getInt("index"), new InvocationSequence(invocations));
+            }
+
+            PartialOrder<InvocationSequence> p = new PartialOrder<>(numbering.values());
+
+            for (JsonArray ordering : object.getJsonArray("order").getValuesAs(JsonArray.class))
+
+                p.add(numbering.get(ordering.getInt(0)), numbering.get(ordering.getInt(1)));
+
+            return new Harness(
+                    f.get(object.getJsonArray("parameters").stream().map(HarnessFactory::fromJsonValue).toArray()), p);
+
+        } else {
+
+            Map<Integer, InvocationSequence> numbering = new HashMap<>();
+
+            InvocationFactory f = new InvocationFactory(object.getString("class"));
+
+            for (JsonObject sequence : object.getJsonArray("sequences").getValuesAs(JsonObject.class)) {
+
+                List<Invocation> invocations = new LinkedList<>();
+                for (JsonObject i : sequence.getJsonArray("invocations").getValuesAs(JsonObject.class))
+
+                    invocations.add(f.get(i.getString("method"),
+                            i.getJsonArray("arguments").stream().map(HarnessFactory::fromJsonValue).toArray()));
+
+                numbering.put(sequence.getInt("index"), new InvocationSequence(invocations));
+            }
+
+            PartialOrder<InvocationSequence> p = new PartialOrder<>(numbering.values());
+
+            for (JsonArray ordering : object.getJsonArray("order").getValuesAs(JsonArray.class))
+
+                p.add(numbering.get(ordering.getInt(0)), numbering.get(ordering.getInt(1)));
+
+            return new Harness(
+                    f.get(object.getJsonArray("parameters").stream().map(HarnessFactory::fromJsonValue).toArray()), p);
+
         }
-
-        PartialOrder<InvocationSequence> p = new PartialOrder<>(numbering.values());
-
-        for (JsonArray ordering : object.getJsonArray("order")
-                .getValuesAs(JsonArray.class))
-
-            p.add(
-                numbering.get(ordering.getInt(0)),
-                numbering.get(ordering.getInt(1)));
-
-        return new Harness(f.get(
-            object.getJsonArray("parameters").stream()
-                .map(HarnessFactory::fromJsonValue).toArray()),
-            p);
     }
 
     static Object fromJsonValue(JsonValue value) {
         switch (value.getValueType()) {
-            case NULL:
-                return null;
-            case TRUE:
-                return new Boolean(true);
-            case FALSE:
-                return new Boolean(false);
-            case NUMBER:
-                return new Integer(((JsonNumber) value).intValue());
-            case STRING:
-                return ((JsonString) value).getString();
-            case ARRAY:
-                return ((JsonArray) value).stream()
-                    .map(HarnessFactory::fromJsonValue)
-                    .collect(Collectors.toList());
-            case OBJECT:
-                return ((JsonObject) value).entrySet().stream()
-                    .collect(Collectors.toMap(
-                        e -> Integer.parseInt(e.getKey()),
-                        e -> fromJsonValue(e.getValue())
-                    ));
+        case NULL:
+            return null;
+        case TRUE:
+            return new Boolean(true);
+        case FALSE:
+            return new Boolean(false);
+        case NUMBER:
+            return new Integer(((JsonNumber) value).intValue());
+        case STRING:
+            return ((JsonString) value).getString();
+        case ARRAY:
+            return ((JsonArray) value).stream().map(HarnessFactory::fromJsonValue).collect(Collectors.toList());
+        case OBJECT:
+            return ((JsonObject) value).entrySet().stream()
+                    .collect(Collectors.toMap(e -> Integer.parseInt(e.getKey()), e -> fromJsonValue(e.getValue())));
         }
 
         throw new RuntimeException("Unexpected JSON value: " + value);

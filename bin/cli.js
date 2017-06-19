@@ -16,21 +16,23 @@ let cli = meow(`
     --method <method-name>      Name of a method to test.
     --values N                  Number of distinct argument values.
     --sequences N               Number of concurrent invocation sequences.
-    --invocations N             Total nuber of invocations.
+    --invocations N             Total number of invocations.
+  
+  C/CPP Languages
+    --clang                     Enable C/C++ Language.
+    --header-only               Header only generated file
+    --lib-file                  Input library file (1 file only)
 
   Examples
-    $ ${meta.name} \\
-      --spec specs/java/util/concurrent/ConcurrentSkipListMap.json \\
-      --method clear \\
-      --sequences 2 \\
-      --invocations 4
+    $ ${meta.name} --spec ConcurrentSkipListMap.json --method clear --sequences 2 --invocations 4
 `, {
   default: {
   }
 });
 
-if (!cli.flags.spec)
+if (!cli.flags.spec) {
   cli.showHelp();
+}
 
 (async () => {
   console.log(`${meta.name} version ${meta.version}`);

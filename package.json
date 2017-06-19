@@ -30,13 +30,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/michael-emmi/violat.git"
+    "url": "git+https://github.com/trucnguyenlam/violat.git"
   },
   "keywords": [],
-  "author": "Michael Emmi <michael.emmi@gmail.com>",
+  "author": "Truc Nguyen Lam <trucnguyenlam@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/michael-emmi/violat/issues"
+    "url": "https://github.com/trucnguyenlam/violat/issues"
   },
-  "homepage": "https://github.com/michael-emmi/violat#readme"
+  "homepage": "https://github.com/trucnguyenlam/violat#readme"
 }

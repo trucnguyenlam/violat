@@ -1,0 +1,238 @@
+{
+  "class": "java.util.concurrent.ConcurrentHashMap",
+  "methods": [
+    {
+      "name": "clear",
+      "parameters": [],
+      "void": true,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "contains",
+      "parameters": [
+        "java.lang.Object"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "containsKey",
+      "parameters": [
+        "java.lang.Object"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "containsValue",
+      "parameters": [
+        "java.lang.Object"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "elements",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "entrySet",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "equals",
+      "parameters": [
+        "java.lang.Object"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "get",
+      "parameters": [
+        "java.lang.Object"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "getOrDefault",
+      "parameters": [
+        "java.lang.Object",
+        "int"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "hashCode",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "isEmpty",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "keys",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "keySet",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "keySet",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "keySet",
+      "parameters": [
+        "int"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "mappingCount",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "newKeySet",
+      "parameters": [
+        "int"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "newKeySet",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "put",
+      "parameters": [
+        "int",
+        "int"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "putAll",
+      "parameters": [
+        "java.util.Map<? extends K, ? extends V>"
+      ],
+      "void": true,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "putIfAbsent",
+      "parameters": [
+        "int",
+        "int"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "remove",
+      "parameters": [
+        "java.lang.Object"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": true
+    },
+    {
+      "name": "remove",
+      "parameters": [
+        "java.lang.Object",
+        "java.lang.Object"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "replace",
+      "parameters": [
+        "int",
+        "int"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "replace",
+      "parameters": [
+        "int",
+        "int",
+        "int"
+      ],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "size",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "toString",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    },
+    {
+      "name": "values",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": false
+    }
+  ]
+}
