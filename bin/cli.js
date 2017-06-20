@@ -12,16 +12,15 @@ let cli = meow(`
     $ ${meta.name} --spec <spec-file.json>
 
   Options
-    --spec <spec-file.json>     Java class specification file (required).
-    --method <method-name>      Name of a method to test.
-    --values N                  Number of distinct argument values.
-    --sequences N               Number of concurrent invocation sequences.
-    --invocations N             Total number of invocations.
-  
+    --spec <spec-file.json>       Java class specification file (required).
+    --method <method-name>        Name of a method to test.
+    --values N                    Number of distinct argument values.
+    --sequences N                 Number of concurrent invocation sequences.
+    --invocations N               Total number of invocations.
+    
   C/CPP Languages
-    --clang                     Enable C/C++ Language.
-    --header-only               Header only generated file
-    --lib-file                  Input library file (1 file only)
+    --clang                       Enable C/C++ Language.
+    --lib-file <lib-file.cxx>     Input library file (1 file only)
 
   Examples
     $ ${meta.name} --spec ConcurrentSkipListMap.json --method clear --sequences 2 --invocations 4

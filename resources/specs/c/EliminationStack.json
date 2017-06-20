@@ -1,8 +1,9 @@
 {
-  "class": "SafeStack",
+  "class": "EliminationStack",
   "language": "c",
+  "object_name": "",
   "init": "Init",
-  "init_parameters": [ 3 ],
+  "init_parameters": [],
   "equivalent": "java.util.Stack",
   "harnessParameters": {
         "invocations": 4
@@ -15,14 +16,6 @@
       "readonly": false,
       "trusted": true,
       "equivalent": "pop"
-    },
-    {
-      "name": "Size",
-      "parameters": [],
-      "void": false,
-      "readonly": true,
-      "trusted": false,
-      "equivalent": "size"
     },
     {
       "name": "Push",

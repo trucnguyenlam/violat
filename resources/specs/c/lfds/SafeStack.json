@@ -1,8 +1,6 @@
 {
   "class": "SafeStack",
   "language": "c",
-  "init": "Init",
-  "init_parameters": [ 3 ],
   "equivalent": "java.util.Stack",
   "harnessParameters": {
         "invocations": 4
