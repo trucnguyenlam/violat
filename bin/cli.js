@@ -17,7 +17,7 @@ let cli = meow(`
     --values N                    Number of distinct argument values.
     --sequences N                 Number of concurrent invocation sequences.
     --invocations N               Total number of invocations.
-    
+
   C/CPP Languages
     --clang                       Enable C/C++ Language.
     --lib-file <lib-file.cxx>     Input library file (1 file only)

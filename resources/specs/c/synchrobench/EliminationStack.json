@@ -1,0 +1,29 @@
+{
+  "class": "EliminationStack",
+  "language": "c",
+  "object_name": "",
+  "init": "Init",
+  "init_parameters": [],
+  "equivalent": "java.util.Stack",
+  "harnessParameters": {
+        "invocations": 4
+  },
+  "methods": [
+    {
+      "name": "Pop",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": true,
+      "equivalent": "pop"
+    },
+    {
+      "name": "Push",
+      "parameters": ["int"],
+      "void": true,
+      "readonly": false,
+      "trusted": true,
+      "equivalent": "push"
+    }
+  ]
+}
