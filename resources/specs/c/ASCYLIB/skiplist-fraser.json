@@ -1,0 +1,29 @@
+{
+  "class": "SkipListFraser",
+  "language": "c",
+  "object_name": "gset",
+  "init": "Init",
+  "init_parameters": [],
+  "equivalent": "java.util.concurrent.ConcurrentSkipListSet",
+  "harnessParameters": {
+        "invocations": 4
+  },
+  "methods": [
+    {
+      "name": "sl_remove",
+      "parameters": [],
+      "void": false,
+      "readonly": false,
+      "trusted": true,
+      "equivalent": "pop"
+    },
+    {
+      "name": "Push",
+      "parameters": ["int"],
+      "void": true,
+      "readonly": false,
+      "trusted": true,
+      "equivalent": "push"
+    }
+  ]
+}
