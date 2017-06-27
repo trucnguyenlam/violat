@@ -1,32 +1,30 @@
 {
   "name": "violat",
-  "version": "0.1.24",
+  "version": "0.1.29",
   "description": "Find test harnesses that expose linearizability violations.",
   "main": "index.js",
   "bin": {
-    "violat": "./bin/cli.js",
-    "generate-class-spec": "./bin/cli-spec-generator.js"
+    "violat": "./bin/cli.js"
   },
   "preferGlobal": true,
   "dependencies": {
     "debug": "^2.6.4",
     "event-stream": "^3.3.4",
     "inquirer": "^3.0.6",
-    "java": "^0.8.0",
     "meow": "^3.7.0",
-    "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
-    "seedrandom": "^2.4.2",
-    "winston": "^2.3.1"
+    "seedrandom": "^2.4.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^3.4.2"
+  },
   "engines": {
     "node": ">=7.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "experiments": "node test/experiments.js"
+    "test": "mocha",
+    "experiments": "node resources/scripts/experiments.js"
   },
   "repository": {
     "type": "git",
